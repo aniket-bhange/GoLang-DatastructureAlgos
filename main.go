@@ -30,7 +30,8 @@ func main() {
 
 	// inputValue = sort.Selection(inputValue)
 	// inputValue = sort.Bubble(inputValue)
-	inputValue = sort.MergeSort(inputValue)
+	// inputValue = sort.MergeSort(inputValue)
+	inputValue = sort.HeapSort(inputValue)
 
 	fmt.Println(inputValue)
 }
