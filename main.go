@@ -1,7 +1,7 @@
 package main
 
 import (
-	"DS/sort"
+	"DS/search"
 	"fmt"
 	"os"
 	"strconv"
@@ -11,6 +11,9 @@ import (
 func ConvertStoI(strArr []string) ([]int, error) {
 	var op []int
 	for _, v := range strArr {
+		if v == "-f" {
+			return op, nil
+		}
 		j, _ := strconv.Atoi(v)
 		op = append(op, j)
 	}
@@ -18,7 +21,7 @@ func ConvertStoI(strArr []string) ([]int, error) {
 }
 
 func main() {
-	// val := []int{2, 5, 7, 8, 9, 4}
+	// val := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	var input []string
 	input = os.Args[1:]
 
@@ -28,10 +31,16 @@ func main() {
 		fmt.Println(err)
 	}
 
+	valueToFind := os.Args[len(inputValue)+1:]
+	find, _ := strconv.Atoi(valueToFind[1])
 	// inputValue = sort.Selection(inputValue)
 	// inputValue = sort.Bubble(inputValue)
 	// inputValue = sort.MergeSort(inputValue)
-	inputValue = sort.HeapSort(inputValue)
+	// inputValue = sort.HeapSort(inputValue)
+
+	searchValue := search.Jump(inputValue, find)
 
 	fmt.Println(inputValue)
+	fmt.Println(searchValue)
+
 }
